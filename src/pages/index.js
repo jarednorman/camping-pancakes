@@ -21,6 +21,12 @@ const IndexPage = () => (
       </blockquote>
       <p style={{margin: 0}}>–Jared Norman, happy customer</p>
     </div>
+    <div style={{border: "2px solid lightGray", padding: 15, margin: "0 auto 1.45rem", maxWidth: 600}}>
+      <blockquote style={{margin: 0, fontSize: 20, marginBottom: "0.7rem"}}>
+        Not the best customer service, but great vibe and good pancakes.
+      </blockquote>
+      <p style={{margin: 0}}>–Alistair Norman, satisfied customer</p>
+    </div>
     <div style={{margin: "0 auto", maxWidth: 300}}>
     <StaticImage
       src="../images/pancakes1.jpg"
