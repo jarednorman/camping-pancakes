@@ -7,22 +7,44 @@ import Seo from "../components/seo"
 
 const IndexPage = () => (
   <Layout>
-    <Seo title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
+    <Seo title="Camping Pancakes" />
+    <div style={{backgroundColor: "red", color: "white", padding: 4, marginBottom: "1rem"}}>
+      <p style={{margin: 0}}>Pancakes are available from 9am to 11:50am</p>
+    </div>
+    <p style={{fontSize: 24}}>
+      Bringing pancakes to the world from 9am to 11:50am!
+    </p>
+    <div>
     <StaticImage
-      src="../images/gatsby-astronaut.png"
+      src="../images/pancakes1.jpg"
       width={300}
-      quality={95}
-      formats={["AUTO", "WEBP", "AVIF"]}
-      alt="A Gatsby astronaut"
+      quality={93}
+      formats={["AUTO", "WEBP"]}
+      alt="pancakes"
       style={{ marginBottom: `1.45rem` }}
     />
-    <p>
-      <Link to="/page-2/">Go to page 2</Link> <br />
-      <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-    </p>
+    </div>
+    <div>
+    <StaticImage
+      src="../images/pancakes2.jpg"
+      width={300}
+    height={400}
+      quality={92}
+      formats={["AUTO", "WEBP"]}
+      alt="pancakes"
+      style={{ marginBottom: `1.45rem` }}
+    />
+    </div>
+    <div>
+    <StaticImage
+      src="../images/pancakes3.jpg"
+      width={300}
+      quality={95}
+      formats={["AUTO", "WEBP"]}
+      alt="pancakes"
+      style={{ marginBottom: `1.45rem` }}
+    />
+    </div>
   </Layout>
 )
 
