@@ -1,0 +1,62 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import pancakes1 from "../images/pancakes1.jpg";
+import pancakes2 from "../images/pancakes2.jpg";
+import pancakes3 from "../images/pancakes3.jpg";
+---
+
+<Layout title="Camping Pancakes">
+  <div style="background-color: red; color: white; padding: 4px; margin-bottom: 1.45rem;">
+    <p style="margin: 0;">Pancakes are available from 9am to 11:50am</p>
+  </div>
+  <p style="font-size: 24px;">Bringing pancakes to the world from 9am to 11:50am!</p>
+  <div style="border: 2px solid lightGray; padding: 15px; margin: 0 auto 1.45rem; max-width: 600px;">
+    <blockquote style="margin: 0 0 0.7rem; font-size: 20px;">
+      These are the best camping pancakes out there! I always go back for
+      seconds! He cooks pancakes just like my dad used to.
+    </blockquote>
+    <p style="margin: 0;">–Jared Norman, happy customer</p>
+  </div>
+  <div style="border: 2px solid lightGray; padding: 15px; margin: 0 auto 1.45rem; max-width: 600px;">
+    <blockquote style="margin: 0 0 0.7rem; font-size: 20px;">
+      Not the best customer service, but great vibe and good pancakes.
+    </blockquote>
+    <p style="margin: 0;">–Alistair Norman, satisfied customer</p>
+  </div>
+  <div style="margin: 0 auto; max-width: 300px; overflow: hidden;">
+    <Image
+      src={pancakes1}
+      alt="pancakes"
+      width={300}
+      densities={[1, 2]}
+      quality={93}
+      format="webp"
+      style="display: block; margin-bottom: 1.45rem;"
+    />
+  </div>
+  <div style="margin: 0 auto; max-width: 300px; overflow: hidden;">
+    <Image
+      src={pancakes2}
+      alt="pancakes"
+      width={300}
+      height={400}
+      fit="cover"
+      densities={[1, 2]}
+      quality={92}
+      format="webp"
+      style="display: block; margin-bottom: 1.45rem;"
+    />
+  </div>
+  <div style="margin: 0 auto; max-width: 300px; overflow: hidden;">
+    <Image
+      src={pancakes3}
+      alt="pancakes"
+      width={300}
+      densities={[1, 2]}
+      quality={95}
+      format="webp"
+      style="display: block; margin-bottom: 1.45rem;"
+    />
+  </div>
+</Layout>

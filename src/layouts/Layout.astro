@@ -1,0 +1,47 @@
+---
+import { getImage } from "astro:assets";
+import icon from "../images/icon.jpg";
+import "../styles/layout.css";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const siteTitle = "Camping Pancakes";
+const { title, description = "Bringing pancakes to the world!" } = Astro.props;
+const favicon = await getImage({ src: icon, width: 64, height: 64, format: "png" });
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>{title} | {siteTitle}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:creator" content="@gilliganpablo" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <link rel="icon" href={favicon.src} />
+  </head>
+  <body>
+    <header style="background: darkGreen; margin-bottom: 1.45rem;">
+      <div style="margin: 0 auto; max-width: 960px; padding: 1.45rem 1.0875rem;">
+        <h1 style="margin: 0;">
+          <a href="/" style="color: white; text-decoration: none;">{siteTitle}</a>
+        </h1>
+      </div>
+    </header>
+    <div style="margin: 0 auto; max-width: 960px; padding: 0 1.0875rem 1.45rem;">
+      <main><slot /></main>
+      <footer style="margin-top: 2rem; text-align: center;">
+        © {new Date().getFullYear()} Lionel Norman
+      </footer>
+    </div>
+  </body>
+</html>
