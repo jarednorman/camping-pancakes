@@ -1,9 +1,12 @@
 ---
 import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
+import Review from "../components/Review.astro";
 import pancakes1 from "../images/pancakes1.jpg";
 import pancakes2 from "../images/pancakes2.jpg";
 import pancakes3 from "../images/pancakes3.jpg";
+import pancakes4 from "../images/pancakes4.jpg";
+import pancakes5 from "../images/pancakes5.jpg";
 ---
 
 <Layout title="Camping Pancakes">
@@ -51,41 +54,50 @@ import pancakes3 from "../images/pancakes3.jpg";
     <p style="font-size: 0.85rem; margin-bottom: 0;"><sup>GF</sup> Gluten free</p>
     <p style="font-size: 0.85rem; margin-bottom: 0.725rem;"><sup>*</sup> Comes pre-buttered</p>
   </div>
-  <div style="border: 2px solid lightGray; padding: 15px; margin: 0 auto 1.45rem; max-width: 600px;">
-    <blockquote style="margin: 0 0 0.7rem; font-size: 20px;">
-      These are the best camping pancakes out there! I always go back for
-      seconds! He cooks pancakes just like my dad used to.
-    </blockquote>
-    <p style="margin: 0;">–Jared Norman, happy customer</p>
-  </div>
-  <div style="border: 2px solid lightGray; padding: 15px; margin: 0 auto 1.45rem; max-width: 600px;">
-    <blockquote style="margin: 0 0 0.7rem; font-size: 20px;">
+  <div style="margin: 0 auto; max-width: 600px;">
+    <h2>Reviews</h2>
+    <Review name="Jared Norman" label="Happy customer" rating={5} images={[pancakes2, pancakes3]}>
+      These are the best camping pancakes out there! I always go back for seconds! He cooks
+      pancakes just like my dad used to.
+    </Review>
+    <Review name="Alistair Norman" label="Satisfied customer" rating={4}>
       Not the best customer service, but great vibe and good pancakes.
-    </blockquote>
-    <p style="margin: 0;">–Alistair Norman, satisfied customer</p>
+    </Review>
+    <Review name="Allison Larson" label="Happy customer" rating={5} images={[pancakes4]}>
+      They're really good!
+    </Review>
+    <Review name="Julia Tschanz" label="Whiny customer" rating={4} images={[pancakes5]}>
+      The chairs kinda suck at this restaurant, but I'm pretty sure I could eat an infinity amount.
+    </Review>
   </div>
-  <div style="margin: 0 auto; max-width: 300px; overflow: hidden;">
-    <Image
-      src={pancakes2}
-      alt="pancakes"
-      width={300}
-      height={400}
-      fit="cover"
-      densities={[1, 2]}
-      quality={92}
-      format="webp"
-      style="display: block; margin-bottom: 1.45rem;"
+  <dialog
+    id="lightbox"
+    style="border: none; padding: 0; background: transparent; max-width: 90vw; max-height: 90vh;"
+  >
+    <img
+      id="lightbox-img"
+      src=""
+      alt="Review photo"
+      style="display: block; max-width: 90vw; max-height: 90vh; margin: 0;"
     />
-  </div>
-  <div style="margin: 0 auto; max-width: 300px; overflow: hidden;">
-    <Image
-      src={pancakes3}
-      alt="pancakes"
-      width={300}
-      densities={[1, 2]}
-      quality={95}
-      format="webp"
-      style="display: block; margin-bottom: 1.45rem;"
-    />
-  </div>
+  </dialog>
 </Layout>
+
+<style>
+  #lightbox::backdrop {
+    background: rgba(0, 0, 0, 0.75);
+  }
+</style>
+
+<script>
+  const dialog = document.getElementById("lightbox") as HTMLDialogElement;
+  const img = document.getElementById("lightbox-img") as HTMLImageElement;
+  document.querySelectorAll<HTMLAnchorElement>("a.review-photo").forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      img.src = link.dataset.full ?? link.href;
+      dialog.showModal();
+    });
+  });
+  dialog.addEventListener("click", () => dialog.close());
+</script>

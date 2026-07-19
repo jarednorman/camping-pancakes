@@ -1,0 +1,49 @@
+---
+import { Image, getImage } from "astro:assets";
+
+interface Props {
+  name: string;
+  label: string;
+  rating: number;
+  images?: ImageMetadata[];
+}
+
+const { name, label, rating, images = [] } = Astro.props;
+const fullImages = await Promise.all(
+  images.map((img) => getImage({ src: img, width: 1600, format: "webp", quality: 85 }))
+);
+---
+
+<div style="border: 2px solid lightGray; padding: 15px; margin: 0 0 1.45rem;">
+  <p style="margin: 0; font-weight: bold;">{name}</p>
+  <p style="margin: 0 0 0.35rem; font-size: 0.85rem; color: hsla(0, 0%, 0%, 0.6);">{label}</p>
+  <p
+    style="margin: 0 0 0.7rem; color: goldenrod; letter-spacing: 3px;"
+    role="img"
+    aria-label={`Rated ${rating} out of 5 stars`}
+  >
+    {"★".repeat(rating) + "☆".repeat(5 - rating)}
+  </p>
+  <blockquote style="margin: 0; font-size: 20px;"><slot /></blockquote>
+  {
+    images.length > 0 && (
+      <div style="display: flex; gap: 0.5rem; margin-top: 0.7rem;">
+        {images.map((img, i) => (
+          <a href={fullImages[i].src} class="review-photo" data-full={fullImages[i].src}>
+            <Image
+              src={img}
+              alt={`Photo from ${name}'s review`}
+              width={120}
+              height={120}
+              fit="cover"
+              densities={[1, 2]}
+              quality={90}
+              format="webp"
+              style="display: block; margin: 0; border-radius: 4px;"
+            />
+          </a>
+        ))}
+      </div>
+    )
+  }
+</div>
