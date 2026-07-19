@@ -7,10 +7,27 @@ import pancakes3 from "../images/pancakes3.jpg";
 ---
 
 <Layout title="Camping Pancakes">
-  <div style="background-color: red; color: white; padding: 4px; margin-bottom: 1.45rem;">
-    <p style="margin: 0;">Pancakes are available from 9am to 11:50am</p>
+  <div style="position: relative; width: 100vw; margin: -1.45rem calc(50% - 50vw) 1.45rem;">
+    <Image
+      src={pancakes1}
+      alt="pancakes on the griddle"
+      widths={[640, 960, 1440, 1920]}
+      sizes="100vw"
+      quality={80}
+      format="webp"
+      style="display: block; width: 100%; height: 55vh; object-fit: cover; margin: 0;"
+    />
+    <div
+      style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0, 0, 0, 0.4);"
+    >
+      <div style="color: white; text-align: center; padding: 0 1.0875rem; max-width: 700px;">
+        <p style="font-size: clamp(22px, 4vw, 36px); line-height: 1.25; margin-bottom: 0.7rem;">
+          “I know how to make them. I just don't know how to eat them.”
+        </p>
+        <p style="margin: 0; font-size: 18px;">–Lionel Norman, Chef</p>
+      </div>
+    </div>
   </div>
-  <p style="font-size: 24px;">Bringing pancakes to the world from 9am to 11:50am!</p>
   <div style="margin: 0 auto 1.45rem; max-width: 600px; font-family: 'Noto Sans Mono', monospace;">
     <h2>Menu</h2>
     <div style="display: flex; align-items: baseline; margin-bottom: 0.725rem;">
@@ -46,17 +63,6 @@ import pancakes3 from "../images/pancakes3.jpg";
       Not the best customer service, but great vibe and good pancakes.
     </blockquote>
     <p style="margin: 0;">–Alistair Norman, satisfied customer</p>
-  </div>
-  <div style="margin: 0 auto; max-width: 300px; overflow: hidden;">
-    <Image
-      src={pancakes1}
-      alt="pancakes"
-      width={300}
-      densities={[1, 2]}
-      quality={93}
-      format="webp"
-      style="display: block; margin-bottom: 1.45rem;"
-    />
   </div>
   <div style="margin: 0 auto; max-width: 300px; overflow: hidden;">
     <Image
